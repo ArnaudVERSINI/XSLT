@@ -1,0 +1,35 @@
+<project name="ihm" default="all" basedir=".">
+	<target name="all" depends="clean, albums, artistes"/>
+
+	<target name="clean" depends="vars">
+		<!--<exec command="wget http://ubuntu.mirrors.proxad.net/karmic/ubuntu-9.10-desktop-i386.iso" dir="${basedir}/output"/>-->
+		<echo>Temps d'attente pour faire croire que le travail est énorme!</echo>
+		<!--<sleep minutes="5"/>-->
+		<delete dir="${output}"/>
+		<delete file="buil_albums.ant"/>
+	</target>
+
+	<target name="mkdirs" depends="vars">
+		<mkdir dir="${output}"/>
+	</target>
+
+	<target name="vars">
+		<property name="xml" value="${basedir}/xml"/>
+		<property name="xml" value="${basedir}/xml"/>
+		<property name="xslt" value="${basedir}/xslt"/>
+		<property name="output" value="${basedir}/output"/>
+	</target>
+
+	<target name="albums" depends="mkdirs, fichier_par_album">
+		<xslt style="${xslt}/TousLesAlbums.xsl" in="${xml}/Albums.xml" out="${output}/TousLesAlbums.html" />
+	</target>
+	
+	<target name="fichier_par_album" depends="mkdirs">
+		<xslt style="${xslt}/PageParArtiste.xsl" in="${xml}/Albums.xml" out="${basedir}/build_albums.ant" />
+		<subant antfile="build_albums.ant" buildpath="." failonerror="true"/>
+	</target>
+	
+	<target name="artistes" depends="mkdirs">
+		<xslt style="${xslt}/TousLesArtistes.xsl" in="${xml}/Artistes.xml" out="${output}/TousLesArtistes.html" />
+	</target>
+</project>

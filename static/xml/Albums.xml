@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE Albums SYSTEM "Albums.dtd">
+
+<Albums>
+  <Album id="C1" >
+    <Titre>Titre1</Titre>
+    <Annee>2008</Annee>
+    <Couverture fichier=""/>
+    <Artiste ref="A1"/>
+    <Support>
+      <Type>CD</Type>
+      <Prix>25</Prix>
+    </Support>
+    <Pistes>
+      <Piste>
+        <No>1</No>
+        <Titre>Intro</Titre>
+        <Duree>2:56</Duree>
+      </Piste>
+    </Pistes>
+  </Album>
+  
+  <Album id="C2" >
+    <Titre>Titre2</Titre>
+    <Annee>2008</Annee>
+    <Couverture fichier=""/>
+    <Artiste ref="A1"/>
+    <Support>
+      <Type>CD</Type>
+      <Prix>25</Prix>
+    </Support>
+    <Pistes>
+      <Piste>
+        <No>1</No>
+        <Titre>Intro2</Titre>
+        <Duree>2:56</Duree>
+      </Piste>
+    </Pistes>
+  </Album>
+  
+  <Album id="C3" >
+    <Titre>Titre1</Titre>
+    <Annee>2000</Annee>
+    <Couverture fichier=""/>
+    <Artiste ref="A2"/>
+    <Support>
+      <Type>CD</Type>
+      <Prix>25</Prix>
+    </Support>
+    <Pistes>
+      <Piste>
+        <No>1</No>
+        <Titre>Prélude</Titre>
+        <Duree>2:56</Duree>
+      </Piste>
+    </Pistes>
+  </Album>
+</Albums>

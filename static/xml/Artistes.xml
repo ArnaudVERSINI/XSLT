@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE Artistes SYSTEM "Artistes.dtd">
+<?xml-stylesheet type="text/xsl" href="recette.xsl"?>
+<Artistes>
+	<Type id="T1">Rock français</Type>
+  <Type id="T2">Rock international</Type>
+  <Type id="T3">Jazz</Type>
+  <Type id="T4">Musique du monde</Type>
+	<Artiste id="A1" type="T1">
+		<Nom>Versini</Nom>
+    <Prenom>Arnaud</Prenom>
+		<Date-naissance>02/10/1990</Date-naissance>
+    <Photo fichier="" />
+		<Lieu-naissance>Ajaccio</Lieu-naissance>
+    <Info_biographie>Aucune
+      <important></important>
+    </Info_biographie>  
+		<Pays>France</Pays>
+		<Album ref=""/>
+	</Artiste>
+  <Artiste id="A2" type="T1">
+    <Nom>Talazac</Nom>
+    <Prenom>Cédric</Prenom>
+    <Date-naissance>02/10/1990</Date-naissance>
+    <Photo fichier="" />
+    <Lieu-naissance>Ajaccio</Lieu-naissance>
+    <Info_biographie>
+      Aucune
+      <important></important>
+    </Info_biographie>
+    <Pays>France</Pays>
+    <Album ref=""/>
+  </Artiste>
+  <Artiste id="A3" type="T1">
+    <Nom>BRUEL</Nom>
+    <Prenom>Patrick</Prenom>
+    <Date-naissance>02/10/1990</Date-naissance>
+    <Photo fichier="" />
+    <Lieu-naissance>Ajaccio</Lieu-naissance>
+    <Info_biographie>
+      Aucune
+      <important></important>
+    </Info_biographie>
+    <Pays>France</Pays>
+    <Album ref=""/>
+  </Artiste>
+  <Artiste id="A4" type="T2">
+    <Nom>Cooker</Nom>
+    <Prenom>Joe</Prenom>
+    <Date-naissance>02/10/1990</Date-naissance>
+    <Photo fichier="" />
+    <Lieu-naissance>Ajaccio</Lieu-naissance>
+    <Info_biographie>
+      Aucune
+      <important></important>
+    </Info_biographie>
+    <Pays>France</Pays>
+    <Album ref=""/>
+  </Artiste>
+</Artistes>
