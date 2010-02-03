@@ -26,7 +26,15 @@
 
 	<xsl:template match="Album">
 		<p>
-			<xsl:apply-templates />
+			<div class="titre">
+				<xsl:value-of select="Titre"/>
+			</div>
+			<div class="annee">
+				<xsl:text>Année </xsl:text> <xsl:value-of select="Annee"/>
+			</div>
+			<div class="pochette">
+				<img src="../../images/{Couverture/@fichier}"/>				
+			</div>
 		</p>
 	</xsl:template>
 </xsl:stylesheet>
