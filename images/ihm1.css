@@ -1,0 +1,28 @@
+/* ------------------------------
+Tutorial de cssdebutant.com (merci de laisser ce commentaire)
+------------------------------ */
+
+#container{width:780px; margin:0 auto;}
+#topbar{width:auto; display:block; height:80px;}
+#navbar{width:auto; display:block; height:24px;}
+
+#main{width:auto; display:block;}
+#column_left{width:360px; margin-right:20px; float:left;}
+#column_right{width:400px; float:left;}
+
+/*
+div.spacer, permet de faire deux colonne dans #container
+*/
+
+div.spacer{clear:both; height:10px; display:block;}
+#footer{width:auto; display:block; height:24px;}
+
+body {
+color:black;
+background-color:white;
+background-image:url(wallpaper1.jpg);
+}
+.titre {
+font-size: xx-large;
+font-variant: small-caps;
+}
