@@ -27,7 +27,9 @@
       </a>
       <xsl:for-each select="../Artiste[@type=$type_id]">
          <li>
-         <xsl:value-of select="."/>
+          <xsl:value-of select="Prenom"/>  
+          <xsl:text> </xsl:text>
+		  <xsl:value-of select="Nom"/>
        </li>
      </xsl:for-each>
     </div> 

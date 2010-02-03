@@ -11,10 +11,10 @@
 
 	<target name="mkdirs" depends="vars">
 		<mkdir dir="${output}"/>
+		<mkdir dir="${tmp}"/>
 	</target>
 
 	<target name="vars">
-		<property name="xml" value="${basedir}/xml"/>
 		<property name="xml" value="${basedir}/xml"/>
 		<property name="xslt" value="${basedir}/xslt"/>
 		<property name="output" value="${basedir}/output"/>
@@ -25,11 +25,16 @@
 	</target>
 	
 	<target name="fichier_par_album" depends="mkdirs">
-		<xslt style="${xslt}/PageParArtiste.xsl" in="${xml}/Albums.xml" out="${basedir}/build_albums.ant" />
+		<xslt style="${xslt}/PageParAlbum.xsl" in="${xml}/Albums.xml" out="${basedir}/build_albums.ant" />
 		<subant antfile="build_albums.ant" buildpath="." failonerror="true"/>
 	</target>
 	
-	<target name="artistes" depends="mkdirs">
+	<target name="fichier_par_artist" depends="mkdirs">
+		<xslt style="${xslt}/PageParArtiste.xsl" in="${xml}/Artistes.xml" out="${basedir}/build_artistes.ant" />
+		<subant antfile="build_artistes.ant" buildpath="." failonerror="true"/>
+	</target>
+	
+	<target name="artistes" depends="mkdirs, fichier_par_artist">
 		<xslt style="${xslt}/TousLesArtistes.xsl" in="${xml}/Artistes.xml" out="${output}/TousLesArtistes.html" />
 	</target>
 </project>

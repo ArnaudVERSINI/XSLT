@@ -1,60 +1,32 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE Artistes SYSTEM "Artistes.dtd">
-<?xml-stylesheet type="text/xsl" href="recette.xsl"?>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE Guide SYSTEM "Artistes.dtd">
 <Artistes>
-	<Type id="T1">Rock français</Type>
-  <Type id="T2">Rock international</Type>
-  <Type id="T3">Jazz</Type>
-  <Type id="T4">Musique du monde</Type>
-	<Artiste id="A1" type="T1">
-		<Nom>Versini</Nom>
-    <Prenom>Arnaud</Prenom>
-		<Date-naissance>02/10/1990</Date-naissance>
-    <Photo fichier="" />
-		<Lieu-naissance>Ajaccio</Lieu-naissance>
-    <Info_biographie>Aucune
-      <important></important>
-    </Info_biographie>  
+	<Type id="fr">Français</Type>
+	<Type id="us">US</Type>
+	
+	<Artiste id="1" type="fr">
+		<Nom>Chédid</Nom>
+		<Prenom>Matthieu</Prenom>
+		<Date-naissance>21 décembre 1971</Date-naissance>
+		<Photo fichier="M.jpg"></Photo>
+		<Lieu-naissance>Boulogne-Billancourt</Lieu-naissance>
+		<Info_Biographie>
+			Fils du chanteur français Louis Chédid, Matthieu voit le jour le 21 décembre 1971, à Boulogne-Billancourt. Baignant dans un environnement musical et cultivé - sa grand-mère est la poétesse libanaise Andrée Chedid - le petit Matthieu participe, dès l'âge de six ans, aux choeurs sur une chanson de son père.
+		</Info_Biographie>
 		<Pays>France</Pays>
-		<Album ref=""/>
+		<Album ref="2"></Album>
 	</Artiste>
-  <Artiste id="A2" type="T1">
-    <Nom>Talazac</Nom>
-    <Prenom>Cédric</Prenom>
-    <Date-naissance>02/10/1990</Date-naissance>
-    <Photo fichier="" />
-    <Lieu-naissance>Ajaccio</Lieu-naissance>
-    <Info_biographie>
-      Aucune
-      <important></important>
-    </Info_biographie>
-    <Pays>France</Pays>
-    <Album ref=""/>
-  </Artiste>
-  <Artiste id="A3" type="T1">
-    <Nom>BRUEL</Nom>
-    <Prenom>Patrick</Prenom>
-    <Date-naissance>02/10/1990</Date-naissance>
-    <Photo fichier="" />
-    <Lieu-naissance>Ajaccio</Lieu-naissance>
-    <Info_biographie>
-      Aucune
-      <important></important>
-    </Info_biographie>
-    <Pays>France</Pays>
-    <Album ref=""/>
-  </Artiste>
-  <Artiste id="A4" type="T2">
-    <Nom>Cooker</Nom>
-    <Prenom>Joe</Prenom>
-    <Date-naissance>02/10/1990</Date-naissance>
-    <Photo fichier="" />
-    <Lieu-naissance>Ajaccio</Lieu-naissance>
-    <Info_biographie>
-      Aucune
-      <important></important>
-    </Info_biographie>
-    <Pays>France</Pays>
-    <Album ref=""/>
-  </Artiste>
+	<Artiste id="2" type="us">
+		<Nom>Davis</Nom>
+		<Prenom>Miles</Prenom>
+		<Date-naissance>25 mai 1926</Date-naissance>
+		<Photo fichier="MilesDavis.jpg"></Photo>
+		<Lieu-naissance>Alton</Lieu-naissance>
+		<Info_Biographie>
+			Miles Dewey Davis est né aux Etats-Unis à Alton (Illinois) le 25 mai 1926. Comme pour Ellington, ses origines sociales tordent le cou à certains préjugés sur les jazzmen de l'époque ; il est en effet directement issu de la bourgeoisie américaine.
+		</Info_Biographie>
+		<Pays>Etats-Unis</Pays>
+		<Album ref="1"></Album>
+	</Artiste>
+	
 </Artistes>
