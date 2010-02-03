@@ -7,13 +7,11 @@
 	<xsl:template match="Albums">
 		<html>
 			<head>
+				<link rel="stylesheet" type="text/css" href="../../images/ihm1.css" />
 				<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 				<title>Album</title>
 			</head>
 			<body>
-				<div class="titre">
-					<h1>Album</h1>
-				</div>
 				<div class="album">
 					<xsl:apply-templates select="Album[@id=$idAlbum]">
 
@@ -26,15 +24,35 @@
 
 	<xsl:template match="Album">
 		<p>
-			<div class="titre">
-				<xsl:value-of select="Titre"/>
+			<div id="topbar" class="titre">
+				<xsl:value-of select="Titre" />
+				<xsl:text> (</xsl:text>
+				<xsl:value-of select="Annee" />
+				<xsl:text> )</xsl:text>
 			</div>
-			<div class="annee">
-				<xsl:text>Année </xsl:text> <xsl:value-of select="Annee"/>
+
+			<div id="column_right" class="pochette">
+				<img src="../../images/{Couverture/@fichier}" />
 			</div>
-			<div class="pochette">
-				<img src="../../images/{Couverture/@fichier}"/>				
-			</div>
+
+		<table id="column_left">
+			<xsl:for-each select="Pistes/Piste">
+				<tr>
+					<td>
+						<xsl:value-of select="No" />
+					</td>					
+						
+					<td>
+						<xsl:value-of select="Titre" />
+					</td>
+					
+					<td>
+						<xsl:value-of select="Duree" />
+					</td>
+					
+				</tr>
+			</xsl:for-each>
+	</table>
 		</p>
 	</xsl:template>
 </xsl:stylesheet>
