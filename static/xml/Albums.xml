@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <!DOCTYPE Albums SYSTEM "Albums.dtd">
 <Albums>
 	<Album id="1">
@@ -70,7 +70,7 @@
 			</Piste>
 			<Piste> 
 				<No>4</No>
-				<Titre>À Celle Qui Dure</Titre>
+				<Titre>� Celle Qui Dure</Titre>
 				<Duree>03:45</Duree>
 			</Piste>
 			<Piste> 
@@ -95,7 +95,7 @@
 			</Piste>
 			<Piste> 
 				<No>9</No>
-				<Titre>Émilie 1000 Volts</Titre>
+				<Titre>�milie 1000 Volts</Titre>
 				<Duree>02:39</Duree>			 
 			</Piste>
 			<Piste> 
@@ -148,174 +148,7 @@
 			</Piste>
 			<Piste> 
 				<No>2</No>
-				<Titre>La Bonne Étoile</Titre>
-				<Duree>03:56</Duree>
-			</Piste>
-			<Piste> 
-				<No>3</No>
-				<Titre>Sous Ta Peau</Titre>
-				<Duree>03:04</Duree>
-			</Piste>
-			<Piste> 
-				<No>4</No>
-				<Titre>A Tes Souhaits</Titre>
-				<Duree>03:04</Duree>
-			</Piste>
-			<Piste> 
-				<No>5</No>
-				<Titre>Qui De Nous Deux</Titre>
-				<Duree>03:04</Duree>
-			</Piste>
-		</Pistes>
-    	</Album> 
-<Album id="4">
-		<Titre>Kind of Blue</Titre>
-        	<Annee>1997</Annee>
-       		<Couverture fichier="KindOfBlue.jpg"> </Couverture>
-       		<Artiste ref="2"> </Artiste>
-        	<Support>
-				<Type>Jazz</Type>
-				<Prix>15</Prix>
-			</Support>
-		<Pistes>
-			<Piste> 
-				<No>1</No>
-				<Titre>So What</Titre>
-				<Duree>9:22</Duree>
-			</Piste>
-			<Piste> 
-				<No>2</No>
-				<Titre>Freddie Freeloader</Titre>
-				<Duree>9:46</Duree>
-			</Piste>
-			<Piste> 
-				<No>3</No>
-				<Titre>Blue In Green</Titre>
-				<Duree>5:37</Duree>
-			</Piste>
-			<Piste> 
-				<No>4</No>
-				<Titre>All Blues</Titre>
-				<Duree>11:32</Duree>
-			</Piste>
-			<Piste> 
-				<No>5</No>
-				<Titre>Flamenco Sketches</Titre>
-				<Duree>9:26</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>6</No>
-				<Titre>Flamenco Sketches (Alternate Take)</Titre>
-				<Duree>9:31</Duree>			 
-			</Piste>
-		</Pistes>
-    	</Album>
-	<Album id="5">
-		<Titre>Je Dis Aime</Titre>
-        	<Annee>2000</Annee>
-       		<Couverture fichier="JeDisAime.jpg"> </Couverture>
-       		<Artiste ref="1"></Artiste>
-        	<Support>
-				<Type>CD</Type>
-				<Prix>20</Prix>
-			</Support>
-        	<Pistes>
-			<Piste> 
-				<No>1</No>
-				<Titre>Monde Virtuel</Titre>
-				<Duree>03:08</Duree>
-			</Piste>
-			<Piste> 
-				<No>2</No>
-				<Titre>Je Dis Aime</Titre>
-				<Duree>03:56</Duree>
-			</Piste>
-			<Piste> 
-				<No>3</No>
-				<Titre>Onde Sensuelle</Titre>
-				<Duree>03:04</Duree>
-			</Piste>
-			<Piste> 
-				<No>4</No>
-				<Titre>À Celle Qui Dure</Titre>
-				<Duree>03:45</Duree>
-			</Piste>
-			<Piste> 
-				<No>5</No>
-				<Titre>Faut Oubier</Titre>
-				<Duree>03:09</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>6</No>
-				<Titre>Le Festival de Connes</Titre>
-				<Duree>03:20</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>7</No>
-				<Titre>Le Mec Hamac</Titre>
-				<Duree>03:27</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>8</No>
-				<Titre>Close to Me</Titre>
-				<Duree>03:59</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>9</No>
-				<Titre>Émilie 1000 Volts</Titre>
-				<Duree>02:39</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>10</No>
-				<Titre>Qui Est le Plus Fragile?</Titre>
-				<Duree>02:55</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>11</No>
-				<Titre>Le Complexe du Corn Flakes</Titre>
-				<Duree>04:52</Duree>		 
-			</Piste>
-			<Piste> 
-				<No>12</No>
-				<Titre>Au Lieu du Crime</Titre>
-				<Duree>04:14</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>13</No>
-				<Titre>Bonoboo</Titre>
-				<Duree>03:07</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>14</No>
-				<Titre>Le Commun des Motels</Titre>
-				<Duree>03:15</Duree>			 
-			</Piste>
-			<Piste> 
-				<No>15</No>
-				<Titre>Mama Sam</Titre>
-				<Duree>03:15</Duree>			 
-			</Piste>
-		</Pistes>
-    	</Album> 
-
-	<Album id="6">
-		<Titre>Qui de Nous Deux</Titre>
-        	<Annee>2003</Annee>
-       		<Couverture fichier="QuiDeNousDeux.jpg"> </Couverture>
-       		<Artiste ref="1"></Artiste>
-        	<Support>
-				<Type>CD</Type>
-				<Prix>20</Prix>
-			</Support>
-        	<Pistes>
-			<Piste> 
-				<No>1</No>
-				<Titre>Mon Ego</Titre>
-				<Duree>03:08</Duree>
-			</Piste>
-			<Piste> 
-				<No>2</No>
-				<Titre>La Bonne Étoile</Titre>
+				<Titre>La Bonne �toile</Titre>
 				<Duree>03:56</Duree>
 			</Piste>
 			<Piste> 
