@@ -41,7 +41,10 @@
 			<fo:page-sequence master-reference="listeArtistes">
 
 				<fo:flow flow-name="xsl-region-body">
-					<xsl:apply-templates select="Artistes" />
+					<xsl:apply-templates select="Artistes">
+						<xsl:sort select="./Artistes/Artiste/Nom"/>
+					</xsl:apply-templates>	
+					
 				</fo:flow>
 			</fo:page-sequence>
 		</fo:root>
@@ -88,7 +91,9 @@
 	</xsl:template>
 	<xsl:template match="Artiste">
 		<fo:table-row>
-			<xsl:apply-templates />
+			<xsl:apply-templates >
+				
+			</xsl:apply-templates>
 			<fo:table-cell padding="2pt" border="1pt solid black">
 					<fo:block>
 						<xsl:variable name="genre" select="@type"/> 
