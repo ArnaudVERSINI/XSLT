@@ -3,7 +3,9 @@ import java.net.URL;
 import java.util.Date;
 
 public class Artiste {
-	private Date dateNaissance;
+	private String dateNaissance;
+	
+	private String lieuNaissance;
 
 	private int idArtiste;
 
@@ -17,14 +19,18 @@ public class Artiste {
 
 	private String prenom;
 	
-	public Artiste(int idArtiste, String nom, String prenom, Date dateNaissance) {
+	public Artiste(int idArtiste, String nom, String prenom, String dateNaissance) {
 		this.idArtiste = idArtiste;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
 	}
+	
+	public Artiste(int idArtiste) {
+		this.idArtiste = idArtiste;
+	}
 
-	public Date getDateNaissance() {
+	public String getDateNaissance() {
 		return dateNaissance;
 	}
 
@@ -52,7 +58,7 @@ public class Artiste {
 		return prenom;
 	}
 
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(String dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
 
@@ -85,3 +91,4 @@ public class Artiste {
 		return nom + " " + prenom;
 	}
 }
+
