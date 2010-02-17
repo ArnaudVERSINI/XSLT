@@ -28,7 +28,7 @@
 
 			<fo:page-sequence master-reference="pageGarde">
 				<fo:flow flow-name="xsl-region-body">
-					<fo:block background-image="url('../../images/wallpaper1_a4.jpg')"
+					<fo:block background-image="url('../images/wallpaper1_a4.jpg')"
 						background-position="left center" padding="14.2cm" text-align="center">
 						<fo:inline font-size="36pt" background-color="transparent"
 							color="white">

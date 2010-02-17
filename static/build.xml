@@ -1,22 +1,46 @@
 <project name="ihm" default="all" basedir=".">
-	<target name="all" depends="clean, albums, artistes"/>
+	<target name="all" depends="clean, albums, artistes, generate-pdf"/>
+
+	<taskdef name="fop" classname="org.apache.fop.tools.anttasks.Fop">
+		<classpath>
+			<fileset dir="libs/fop/lib">
+				<include name="*.jar"/>
+			</fileset>
+			<fileset dir="libs/fop/build">
+				<include name="fop.jar"/>
+				<include name="fop-hyph.jar" />
+			</fileset>
+		</classpath>
+	</taskdef>
 
 	<target name="clean" depends="vars">
 		<!--<exec command="wget http://ubuntu.mirrors.proxad.net/karmic/ubuntu-9.10-desktop-i386.iso" dir="${basedir}/output"/>-->
 		<echo>Temps d'attente pour faire croire que le travail est énorme!</echo>
 		<!--<sleep minutes="5"/>-->
 		<delete dir="${output}"/>
+		<delete dir="${tmp}"/>
 		<delete file="buil_albums.ant"/>
 	</target>
 
 	<target name="mkdirs" depends="vars">
 		<mkdir dir="${output}"/>
+		<mkdir dir="${tmp}"/>
 	</target>
+
+	<target name="generate-pdf" depends="vars, mkdirs">
+		<xslt style="${xslt}/albums-fo.xsl" in="${xml}/Albums.xml" out="${tmp}/albums.fo" />
+		<xslt style="${xslt}/artistes-fo.xsl" in="${xml}/Artistes.xml" out="${tmp}/artistes.fo" />
+		<fop format="application/pdf" fofile="${tmp}/albums.fo" outfile="${output}/albums.pdf"/>
+		<fop format="application/pdf" fofile="${tmp}/artistes.fo" outfile="${output}/artistes.pdf"/>
+	</target>
+    
 
 	<target name="vars">
 		<property name="xml" value="${basedir}/xml"/>
 		<property name="xslt" value="${basedir}/xslt"/>
+		<property name="tmp" value="${basedir}/tmp"/>
 		<property name="output" value="${basedir}/output"/>
+		<property name="fop.home" value="${basedir}/libs/fop"/>
 	</target>
 
 	<target name="albums" depends="mkdirs, fichier_par_album">
