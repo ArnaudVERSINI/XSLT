@@ -1,0 +1,5 @@
+<project name="ihm" default="all" basedir=".">
+	<target name="all">
+		<subant antfile="build.xml" buildpath="static" failonerror="true"/>
+	</target>
+</project>
