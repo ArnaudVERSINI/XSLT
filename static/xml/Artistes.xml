@@ -28,5 +28,9 @@
 		<Pays>Etats-Unis</Pays>
 		<Album ref="1"></Album>
 	</Artiste>
-	
+	<Artiste id="3" type="fr">
+		<Nom>Clerc</Nom>
+		<Prenom>Julien</Prenom>
+	</Artiste>
+
 </Artistes>
