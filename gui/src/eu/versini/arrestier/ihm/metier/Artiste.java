@@ -7,6 +7,14 @@ public class Artiste {
 	
 	private String lieuNaissance;
 
+	public String getLieuNaissance() {
+		return lieuNaissance;
+	}
+
+	public void setLieuNaissance(String lieuNaissance) {
+		this.lieuNaissance = lieuNaissance;
+	}
+
 	private int idArtiste;
 
 	private String infoBiographie;
