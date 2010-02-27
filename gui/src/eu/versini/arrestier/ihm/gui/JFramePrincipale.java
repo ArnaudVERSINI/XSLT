@@ -1,7 +1,17 @@
 package eu.versini.arrestier.ihm.gui;
+
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -16,29 +26,32 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
-import eu.versini.arrestier.ihm.metier.Artiste;
+import org.jdom.JDOMException;
+
+import eu.versini.arrestier.ihm.metier.Album;
+import eu.versini.arrestier.ihm.metier.AlbumDocumentCreator;
+
 
 public class JFramePrincipale extends JFrame {
-	
+
 	private JTree globalTree = new JTree();
+	
+	JFileChooser chooser;
+	
+	String choosertitle;
+
 
 	public JFramePrincipale() {
 		initMenu();
 		initmachin();
-		ModeleFichierArtiste modele = new ModeleFichierArtiste();
-		modele.addArtiste(new Artiste(12, "Toto", "Tata", new Date()));
-		modele.addArtiste(new Artiste(13, "Titi", "Tutu", new Date()));
-
-		modele.addArtiste(new Artiste(14, "Toto", "Tata", new Date()));
-		modele.addArtiste(new Artiste(15, "Toto", "Tata", new Date()));
-		modele.addArtiste(new Artiste(16, "Toto", "Tata", new Date()));
-		initModel(modele);
+		setPreferredSize(new Dimension(600, 400));
+		
 	}
-	
+
 	public void maMethodeAArgument(String arg1, int arg2, double ar3) {
 		System.out.println(arg1 + arg2 + ar3);
 	}
-	
+
 	public void maMethodeAArgument(String arg1, int arg2) {
 		maMethodeAArgument(arg1, arg2, 10.0);
 	}
@@ -52,9 +65,46 @@ public class JFramePrincipale extends JFrame {
 
 		JMenuItem menuItemOpen = new JMenuItem("Open");
 		menuFile.add(menuItemOpen);
+		menuItemOpen.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				chooser = new JFileChooser(); 
+			    chooser.setCurrentDirectory(new java.io.File("."));
+			    chooser.setDialogTitle(choosertitle);
+			    chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			    //
+			    // disable the "All files" option.
+			    //
+			    chooser.setAcceptAllFileFilterUsed(false);
+			    //    
+			    if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) { 
+			      System.out.println("getCurrentDirectory(): " 
+			         +  chooser.getCurrentDirectory());
+			      System.out.println("getSelectedFile() : " 
+			         +  chooser.getSelectedFile());
+			      try {
+					chargerModele(chooser.getSelectedFile().toString()) ;
+				} catch (JDOMException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			      }
+			    else {
+			      System.out.println("No Selection ");
+			      }
+
+			}
+		});
 
 		JMenuItem menuItemExit = new JMenuItem("Exit");
 		menuFile.add(menuItemExit);
+		menuItemExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				System.exit(0);
+			}
+		});
 
 		final JMenu menuHelp = new JMenu("Help");
 
@@ -69,42 +119,59 @@ public class JFramePrincipale extends JFrame {
 
 	public void initmachin() {
 		JSplitPane splitPane = new JSplitPane();
-		
+
 		getContentPane().add(splitPane, BorderLayout.CENTER);
 		splitPane.add(globalTree, JSplitPane.LEFT);
-		
+
 		final JPanel panneauDroite = new JPanel();
 		panneauDroite.setLayout(new BorderLayout());
-		
-		
+
 		splitPane.add(panneauDroite, JSplitPane.RIGHT);
-		globalTree.getSelectionModel().setSelectionMode
-        (TreeSelectionModel.SINGLE_TREE_SELECTION);
+		globalTree.getSelectionModel().setSelectionMode(
+				TreeSelectionModel.SINGLE_TREE_SELECTION);
 		globalTree.addTreeSelectionListener(new TreeSelectionListener() {
-			
+
 			@Override
 			public void valueChanged(TreeSelectionEvent event) {
 				TreePath path = event.getNewLeadSelectionPath();
-				DefaultMutableTreeNode treenode = (DefaultMutableTreeNode) path.getLastPathComponent();
+				DefaultMutableTreeNode treenode = (DefaultMutableTreeNode) path
+						.getLastPathComponent();
 				Object obj = treenode.getUserObject();
-				if (obj.getClass() == Artiste.class) {
-					Artiste artiste = (Artiste) obj;
+				if (obj.getClass() == Album.class) {
+					Album album = (Album) obj;
 					panneauDroite.removeAll();
-					panneauDroite.add(new JArtistePanel(artiste));
+					panneauDroite.add(new JAlbumPanel(album));
 				}
 			}
 		});
 	}
-	
-	public void initModel(ModeleFichierArtiste modele) {
+
+	public void initModel(ModeleFichierAlbum modele) {
 		globalTree.setRootVisible(false);
-		DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode("Root Node");
+		DefaultMutableTreeNode rootNode = new DefaultMutableTreeNode(
+				"Root Node");
 		DefaultTreeModel treeModel = new DefaultTreeModel(rootNode);
-		
-		for(Artiste artiste : modele) {
-			rootNode.add(new DefaultMutableTreeNode(artiste));
+
+		for (Album album : modele) {
+			rootNode.add(new DefaultMutableTreeNode(album));
 		}
 
 		globalTree.setModel(treeModel);
+	}
+	
+	public void chargerModele(String repertoire) throws JDOMException, IOException {
+		
+		AlbumDocumentCreator albums = new AlbumDocumentCreator(repertoire +System.getProperty("file.separator") +"Albums.xml" , repertoire + System.getProperty("file.separator") +"Artistes.xml");
+		ModeleFichierAlbum modele = new ModeleFichierAlbum();
+		
+		ArrayList<Album> listeAlbums = new ArrayList<Album>(albums.getAlbumsCharges().values());
+		Collections.sort(listeAlbums);
+		Collections.reverse(listeAlbums);
+		
+		for (Album album : listeAlbums) {
+			modele.addAlbum(album);
+		}
+
+		initModel(modele);
 	}
 }
