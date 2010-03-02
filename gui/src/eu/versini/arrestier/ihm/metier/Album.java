@@ -113,7 +113,7 @@ public class Album implements Comparable<Album>{
 	
 	
 	
-	private class Piste {
+	public class Piste {
 		
 		private int numero ;
 		
@@ -127,6 +127,9 @@ public class Album implements Comparable<Album>{
 			this.titre = _titre ;
 		}
 
+		public  Piste () {
+		}
+		
 		public int getNumero() {
 			return numero;
 		}
@@ -153,9 +156,14 @@ public class Album implements Comparable<Album>{
 		
 	}
 
+	public String toString() {
+		return getTitre();
+		
+	}
 	@Override
 	public int compareTo(Album autreAlbum) {
 		// TODO Auto-generated method stub
 		return  ((Integer) autreAlbum.getId()).compareTo(getId());
 	}
 }
+

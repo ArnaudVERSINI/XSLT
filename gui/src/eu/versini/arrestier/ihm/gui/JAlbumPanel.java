@@ -1,19 +1,16 @@
 package eu.versini.arrestier.ihm.gui;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ComboBoxModel;
 import javax.swing.GroupLayout;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JSpinner;
 import javax.swing.JTextField;
-import javax.swing.SpinnerDateModel;
 import javax.swing.GroupLayout.Alignment;
 
 import eu.versini.arrestier.ihm.metier.Album;
-import eu.versini.arrestier.ihm.metier.Artiste;
+
 
 public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 	
@@ -31,15 +28,20 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		panneauEditionArtiste.setBorder(BorderFactory
 				.createTitledBorder("Gestion"));
 
-		JLabel artisteNameLabel = new JLabel("Titre : ");
-		JTextField artisteNameField = new JTextField(album.getTitre());
+		JLabel titreLabel = new JLabel("Titre : ");
+		JTextField titreField = new JTextField(album.getTitre());
 		
-		JLabel artisteFirstNameLabel = new JLabel("Annee : ");
-		JTextField artisteFirstNameField = new JTextField(album.getAnnee());
+		JLabel anneeLabel = new JLabel("Annee : ");
+		JTextField anneeField = new JTextField(album.getAnnee());
 
-		JLabel genreLabel = new JLabel("Genre : ");
-		JTextField genreField = new JTextField();
+		JLabel artisteLabel = new JLabel("Artiste : ");
+		JTextField artisteField = new JTextField(album.getPrenomArtiste() + " " + album.getNomArtiste());
 		
+		JLabel supportLabel = new JLabel("Support : ");
+		JTextField supportField = new JTextField(album.getSupport());
+		
+		JLabel prixLabel = new JLabel("Prix : ");
+		JTextField prixField = new JTextField(String.valueOf(album.getPrix()));
 
 		GroupLayout layout = new GroupLayout(panneauEditionArtiste);
 		layout.setAutoCreateGaps(true);
@@ -48,26 +50,36 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		panneauEditionArtiste.setLayout(layout);
 		GroupLayout.SequentialGroup hGroup = layout.createSequentialGroup();
 		hGroup.addGroup(layout.createParallelGroup()
-				.addComponent(artisteNameLabel)
-				.addComponent(artisteFirstNameLabel)
-				.addComponent(genreLabel));
+				.addComponent(titreLabel)
+				.addComponent(anneeLabel)
+				.addComponent(artisteLabel)
+				.addComponent(supportLabel)
+				.addComponent(prixLabel));
 		hGroup.addGroup(layout.createParallelGroup()
-				.addComponent(artisteNameField)
-				.addComponent(artisteFirstNameField)
-				.addComponent(genreField));
+				.addComponent(titreField)
+				.addComponent(anneeField)
+				.addComponent(artisteField)
+				.addComponent(supportField)
+				.addComponent(prixField));
 		
 		layout.setHorizontalGroup(hGroup);
 
 		GroupLayout.SequentialGroup vGroup = layout.createSequentialGroup();
 		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-				.addComponent(artisteNameLabel)
-				.addComponent(artisteNameField));
+				.addComponent(titreLabel)
+				.addComponent(titreField));
 		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-				.addComponent(artisteFirstNameLabel)
-				.addComponent(artisteFirstNameField));
+				.addComponent(anneeLabel)
+				.addComponent(anneeField));
 		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-				.addComponent(genreLabel)
-				.addComponent(genreField));
+				.addComponent(artisteLabel)
+				.addComponent(artisteField));
+		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+				.addComponent(supportLabel)
+				.addComponent(supportField));
+		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+				.addComponent(prixLabel)
+				.addComponent(prixField));
 		layout.setVerticalGroup(vGroup);
 
 		add(panneauEditionArtiste);

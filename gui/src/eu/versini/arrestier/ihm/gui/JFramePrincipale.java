@@ -154,6 +154,7 @@ public class JFramePrincipale extends JFrame {
 
 		for (Album album : modele) {
 			rootNode.add(new DefaultMutableTreeNode(album));
+			
 		}
 
 		globalTree.setModel(treeModel);

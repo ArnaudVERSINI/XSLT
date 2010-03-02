@@ -18,10 +18,10 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
+import eu.versini.arrestier.ihm.metier.Album.Piste;
+
 @SuppressWarnings("unchecked")
 public class AlbumDocumentCreator {
-	private String fichierArtistes;
-	private String fichierAlbums;
 	HashMap<String, Album> albumsCharges = new HashMap<String, Album>();
 
 	/**
@@ -82,12 +82,44 @@ public class AlbumDocumentCreator {
 
 				// Recup des noeuds fils
 				List<Element> elementSupport = infoAlbumElt.getChildren();
-				for (Element infoSupport : listeInfoArtiste) {
-					if (infoAlbumElt.getName().equals("Type")) {
-						album.setSupport(infoSupport.getChildText("Type"));
-					} else if (infoAlbumElt.getName().equals("Prix")) {
-						album.setPrix(Double.parseDouble(infoSupport
+				for (Element infoSupport : elementSupport) {
+					if (infoSupport.getName().equals("Type")) {
+						album.setSupport(infoAlbumElt.getChildText("Type"));
+					} else if (infoSupport.getName().equals("Prix")) {
+						album.setPrix(Double.parseDouble(infoAlbumElt
 								.getChildText("Prix")));
+					}
+				}
+			} else if (infoAlbumElt.getName().equals("Pistes")) {
+				System.out.println("Pistes");
+				// Recup des noeuds fils
+				List<Element> elementPiste = infoAlbumElt.getChildren();
+				//System.out.println("Nb pistes : " + elementPiste.size());
+				for (Element infosPiste : elementPiste) {
+					if (infosPiste.getName().equals("Piste")) {
+						
+						List<Element> elementDeLaPiste = infosPiste.getChildren();
+						//System.out.println("Nb piste : " + elementDeLaPiste.size());
+						for (Element unePiste : elementDeLaPiste) {
+							int numeroDePiste = 0 ;
+							String titrePiste = new String();
+							String dureePiste = new String();
+							
+							if (unePiste.getName().equals("No")) {
+								//System.out.println(infoAlbumElt.getChildText("No"));
+								numeroDePiste = Integer.parseInt(infosPiste.getChildText("No"));
+							} else if (unePiste.getName().equals("Titre")) {
+								titrePiste = infosPiste.getChildText("Titre");
+							} else if (unePiste.getName().equals("Duree")) {
+								dureePiste = infosPiste.getChildText("Duree");
+							} else {
+								//System.out.println(unePiste.getName());
+							}
+							//System.out.println(numeroDePiste + " " + titrePiste + " "  + dureePiste);
+							
+							album.getPistes().add(album.new Piste(numeroDePiste,titrePiste,dureePiste));
+						}
+						
 					}
 				}
 			}
@@ -118,7 +150,7 @@ public class AlbumDocumentCreator {
 
 		for (Album album : listeAlbums) {
 			for (Element infoAlbumElt : listeInfoArtiste) {
-				System.out.println("Element " + infoAlbumElt.toString());
+				//System.out.println("Element " + infoAlbumElt.toString());
 				if (Integer.parseInt(id) == album.getIdArtiste()) {
 					if (infoAlbumElt.getName().equals("Nom")) {
 						album.setNomArtiste(artisteElement.getChildText("Nom"));
@@ -133,13 +165,6 @@ public class AlbumDocumentCreator {
 		}
 	}
 
-	private String getFichierAlbums() {
-		return fichierAlbums;
-	}
-
-	private void setFichierAlbums(String fichierAlbums) {
-		this.fichierAlbums = fichierAlbums;
-	}
 
 	public HashMap<String, Album> getAlbumsCharges() {
 		return albumsCharges;
