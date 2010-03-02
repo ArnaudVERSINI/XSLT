@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE Guide SYSTEM "Artistes.dtd">
+<Artistes>
+	<Type id="fr">Français</Type>
+	<Type id="us">US</Type>
+	
+	<Artiste id="1" type="fr">
+		<Nom>Chédid</Nom>
+		<Prenom>Matthieu</Prenom>
+		<Date-naissance>21 décembre 1971</Date-naissance>
+		<Photo fichier="M.jpg"></Photo>
+		<Lieu-naissance>Boulogne-Billancourt</Lieu-naissance>
+		<Info_Biographie>
+			Fils du chanteur français Louis Chédid, Matthieu voit le jour le 21 décembre 1971, à Boulogne-Billancourt. Baignant dans un environnement musical et cultivé - sa grand-mère est la poétesse libanaise Andrée Chedid - le petit Matthieu participe, dès l'âge de six ans, aux choeurs sur une chanson de son père.
+		</Info_Biographie>
+		<Pays>France</Pays>
+		<Album ref="2"></Album>
+	</Artiste>
+	<Artiste id="2" type="us">
+		<Nom>Davis</Nom>
+		<Prenom>Miles</Prenom>
+		<Date-naissance>25 mai 1926</Date-naissance>
+		<Photo fichier="MilesDavis.jpg"></Photo>
+		<Lieu-naissance>Alton</Lieu-naissance>
+		<Info_Biographie>
+			Miles Dewey Davis est né aux Etats-Unis à Alton (Illinois) le 25 mai 1926. Comme pour Ellington, ses origines sociales tordent le cou à certains préjugés sur les jazzmen de l'époque ; il est en effet directement issu de la bourgeoisie américaine.
+		</Info_Biographie>
+		<Pays>Etats-Unis</Pays>
+		<Album ref="1"></Album>
+	</Artiste>
+	<Artiste id="3" type="fr">
+		<Nom>Clerc</Nom>
+		<Prenom>Julien</Prenom>
+	</Artiste>
+
+</Artistes>

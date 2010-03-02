@@ -1,0 +1,18 @@
+<!-- DTD des albums -->
+
+<!ELEMENT Albums (Album*)>
+<!ELEMENT Album (Titre, Annee?, Couverture?, Artiste, Support?, Pistes)>
+<!ATTLIST Album id ID #REQUIRED>
+<!ELEMENT Titre (#PCDATA)>
+<!ELEMENT Annee (#PCDATA)>
+<!ELEMENT Couverture EMPTY>
+<!ATTLIST Couverture fichier CDATA #REQUIRED>
+<!ELEMENT Artiste EMPTY>
+<!ATTLIST Artiste ref CDATA #REQUIRED>
+<!ELEMENT Support (Type, Prix)>
+<!ELEMENT Pistes (Piste*)>
+<!ELEMENT Piste (No, Titre, Duree)>
+<!ELEMENT No (#PCDATA)>
+<!ELEMENT Duree (#PCDATA)>
+<!ELEMENT Type (#PCDATA)>
+<!ELEMENT Prix (#PCDATA)>
