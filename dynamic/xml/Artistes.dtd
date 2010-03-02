@@ -1,0 +1,23 @@
+<!-- DTD des artistes -->
+
+<!ELEMENT Artistes (Type*,Artiste*)>
+
+<!ELEMENT Type (#PCDATA)>
+<!ATTLIST Type id ID #REQUIRED>
+
+<!ELEMENT Artiste (Nom,Prenom,Date-naissance?,Photo?,Lieu-naissance?,Info_biographie?,Pays?,Album*)>
+<!ATTLIST Artiste
+	id ID #REQUIRED
+	type CDATA "typ1"> <!-- Le type "typ1" correspond aux artistes francophones -->
+
+<!ELEMENT Nom (#PCDATA)>
+<!ELEMENT Prenom (#PCDATA)>
+<!ELEMENT Date-naissance (#PCDATA)>
+<!ELEMENT Lieu-naissance (#PCDATA)>
+<!ELEMENT Photo (#PCDATA)>
+<!ATTLIST Photo fichier CDATA #REQUIRED>
+<!ELEMENT Pays (#PCDATA)> 
+<!ELEMENT Info_biographie (#PCDATA|important)*>
+<!ELEMENT important (#PCDATA)> 
+<!ELEMENT Album EMPTY>
+<!ATTLIST Album ref CDATA #REQUIRED>
