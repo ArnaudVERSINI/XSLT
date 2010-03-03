@@ -18,7 +18,7 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
 import org.jdom.output.XMLOutputter;
 
-import eu.versini.arrestier.ihm.metier.Album.Piste;
+import eu.versini.arrestier.ihm.metier.Piste;
 
 @SuppressWarnings("unchecked")
 public class AlbumDocumentCreator {
@@ -100,10 +100,11 @@ public class AlbumDocumentCreator {
 						
 						List<Element> elementDeLaPiste = infosPiste.getChildren();
 						//System.out.println("Nb piste : " + elementDeLaPiste.size());
-						for (Element unePiste : elementDeLaPiste) {
-							int numeroDePiste = 0 ;
+						int numeroDePiste = 0 ;
 							String titrePiste = new String();
 							String dureePiste = new String();
+						for (Element unePiste : elementDeLaPiste) {
+							
 							
 							if (unePiste.getName().equals("No")) {
 								//System.out.println(infoAlbumElt.getChildText("No"));
@@ -117,8 +118,9 @@ public class AlbumDocumentCreator {
 							}
 							//System.out.println(numeroDePiste + " " + titrePiste + " "  + dureePiste);
 							
-							album.getPistes().add(album.new Piste(numeroDePiste,titrePiste,dureePiste));
+							
 						}
+						album.getPistes().add(new Piste(numeroDePiste,titrePiste,dureePiste));
 						
 					}
 				}

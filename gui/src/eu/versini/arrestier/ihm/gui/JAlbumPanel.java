@@ -24,9 +24,9 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 	}
 
 	private void panneauEdition() {
-		JPanel panneauEditionArtiste = new JPanel();
-		panneauEditionArtiste.setBorder(BorderFactory
-				.createTitledBorder("Gestion"));
+		JPanel panneauEditionAlbum = new JPanel();
+		panneauEditionAlbum.setBorder(BorderFactory
+				.createTitledBorder("Informations album"));
 
 		JLabel titreLabel = new JLabel("Titre : ");
 		JTextField titreField = new JTextField(album.getTitre());
@@ -43,11 +43,11 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		JLabel prixLabel = new JLabel("Prix : ");
 		JTextField prixField = new JTextField(String.valueOf(album.getPrix()));
 
-		GroupLayout layout = new GroupLayout(panneauEditionArtiste);
+		GroupLayout layout = new GroupLayout(panneauEditionAlbum);
 		layout.setAutoCreateGaps(true);
 		layout.setAutoCreateContainerGaps(true);
 
-		panneauEditionArtiste.setLayout(layout);
+		panneauEditionAlbum.setLayout(layout);
 		GroupLayout.SequentialGroup hGroup = layout.createSequentialGroup();
 		hGroup.addGroup(layout.createParallelGroup()
 				.addComponent(titreLabel)
@@ -82,7 +82,13 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 				.addComponent(prixField));
 		layout.setVerticalGroup(vGroup);
 
-		add(panneauEditionArtiste);
+		add(panneauEditionAlbum);
+		
+		JPanel panneauEditionPistes = new JPanel();
+		panneauEditionPistes.setBorder(BorderFactory
+				.createTitledBorder("Informations album"));
+		
+		add(new JTableBasiqueAvecModeleDynamiqueObjet(album.getPistes()));
 	}
 	
 	public void save() {
