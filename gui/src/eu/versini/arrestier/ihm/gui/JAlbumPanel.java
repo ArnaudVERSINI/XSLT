@@ -1,8 +1,15 @@
 package eu.versini.arrestier.ihm.gui;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.util.List;
+
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ComboBoxModel;
 import javax.swing.GroupLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -10,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.GroupLayout.Alignment;
 
 import eu.versini.arrestier.ihm.metier.Album;
+import eu.versini.arrestier.ihm.metier.Piste;
 
 
 public class JAlbumPanel extends JPanel implements IInterfaceSavable{
@@ -23,26 +31,71 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		panneauEdition();
 	}
 
+	public JAlbumPanel() {
+		// TODO Auto-generated constructor stub
+		panneauEdition();
+	}
+
 	private void panneauEdition() {
 		JPanel panneauEditionAlbum = new JPanel();
+		final JPistesPanel panneauPistes = new JPistesPanel(album.getPistes());
+		
 		panneauEditionAlbum.setBorder(BorderFactory
 				.createTitledBorder("Informations album"));
 
 		JLabel titreLabel = new JLabel("Titre : ");
-		JTextField titreField = new JTextField(album.getTitre());
-		
-		JLabel anneeLabel = new JLabel("Annee : ");
-		JTextField anneeField = new JTextField(album.getAnnee());
+		final JTextField titreField = new JTextField(album.getTitre());
+		titreField.addFocusListener(new FocusAdapter() {
+		    String lastChange = "";
+		    public void focusLost(FocusEvent evt) {
+		        String currentText = titreField.getText();
+		        if(!lastChange.equals(currentText) ){
+		            album.setTitre(currentText);
+		        }
+		    }        
+		});
 
+		JLabel anneeLabel = new JLabel("Annee : ");
+		final JTextField anneeField = new JTextField(album.getAnnee());
+		anneeField.addFocusListener(new FocusAdapter() {
+		    String lastChange = "";
+		    public void focusLost(FocusEvent evt) {
+		        String currentText = anneeField.getText();
+		        if(!lastChange.equals(currentText) ){
+		            album.setAnnee(currentText);
+		        }
+		    }        
+		});
+		
 		JLabel artisteLabel = new JLabel("Artiste : ");
 		JTextField artisteField = new JTextField(album.getPrenomArtiste() + " " + album.getNomArtiste());
 		
+		
 		JLabel supportLabel = new JLabel("Support : ");
-		JTextField supportField = new JTextField(album.getSupport());
+		final JTextField supportField = new JTextField(album.getSupport());
+		supportField.addFocusListener(new FocusAdapter() {
+		    String lastChange = "";
+		    public void focusLost(FocusEvent evt) {
+		        String currentText = supportField.getText();
+		        if(!lastChange.equals(currentText) ){
+		            album.setSupport(currentText);
+		        }
+		    }        
+		});
+		
 		
 		JLabel prixLabel = new JLabel("Prix : ");
-		JTextField prixField = new JTextField(String.valueOf(album.getPrix()));
-
+		final JTextField prixField = new JTextField(String.valueOf(album.getPrix()));
+		prixField.addFocusListener(new FocusAdapter() {
+		    String lastChange = "";
+		    public void focusLost(FocusEvent evt) {
+		        String currentText = prixField.getText();
+		        if(!lastChange.equals(currentText) ){      
+		            album.setPrix(Double.parseDouble(currentText));
+		        }
+		    }        
+		});
+		
 		GroupLayout layout = new GroupLayout(panneauEditionAlbum);
 		layout.setAutoCreateGaps(true);
 		layout.setAutoCreateContainerGaps(true);
@@ -83,12 +136,28 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		layout.setVerticalGroup(vGroup);
 
 		add(panneauEditionAlbum);
+
 		
-		JPanel panneauEditionPistes = new JPanel();
-		panneauEditionPistes.setBorder(BorderFactory
-				.createTitledBorder("Informations album"));
+		add(panneauPistes) ;
 		
-		add(new JTableBasiqueAvecModeleDynamiqueObjet(album.getPistes()));
+/*	JButton boutonSauver = new JButton("Enregistrer les modifications") ;
+		boutonSauver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent event) {
+				album.setTitre(titreField.getText());
+				album.setAnnee(anneeField.getText());
+				album.setSupport(supportField.getText());
+				album.setPrix(Double.parseDouble(prixField.getText()));
+				
+				List<Piste> pistes = panneauPistes.getModele().getPistes();
+				panneauPistes.getModele().
+				for (Piste unePiste : pistes) {
+					album.getPistes().add(unePiste) ;
+				}
+				
+			}
+		});
+		add(boutonSauver) ;*/
+
 	}
 	
 	public void save() {

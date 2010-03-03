@@ -15,11 +15,11 @@ import javax.swing.JTable;
 
 import eu.versini.arrestier.ihm.metier.Piste;
 
-public class JTableBasiqueAvecModeleDynamiqueObjet extends JPanel {
+public class JPistesPanel extends JPanel {
     private ModeleDynamiqueObjetPistes modele ;
     private JTable tableau;
 
-    public JTableBasiqueAvecModeleDynamiqueObjet(ArrayList<Piste> _pistes) {
+    public JPistesPanel(ArrayList<Piste> _pistes) {
     	
     	this.setBorder(BorderFactory
 				.createTitledBorder("Informations pistes"));
@@ -63,5 +63,9 @@ public class JTableBasiqueAvecModeleDynamiqueObjet extends JPanel {
             }
         }
     }
+
+	public ModeleDynamiqueObjetPistes getModele() {
+		return modele;
+	}
 }
 

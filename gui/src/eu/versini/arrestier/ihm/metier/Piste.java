@@ -37,4 +37,7 @@ public class Piste {
 	public void setTitre(String titre) {
 		this.titre = titre;
 	}
+	public String toString() {
+		return (getNumero() + "-" + getTitre() + "-" + getDuree());
+	}
 }

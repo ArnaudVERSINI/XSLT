@@ -17,6 +17,29 @@ public class ModeleDynamiqueObjetPistes extends AbstractTableModel {
         this.pistes = _pistes ;
     }
 
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        return true; //Toutes les cellules éditables
+    }
+
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        if(aValue != null){
+            Piste piste = pistes.get(rowIndex);
+            
+            switch(columnIndex){
+                case 0:
+                    piste.setNumero(Integer.parseInt((String) aValue));
+                    break;
+                case 1:
+                    piste.setTitre((String)aValue);
+                    break;
+                case 2:
+                    piste.setDuree((String)aValue);
+                    break;
+            }
+        }
+    }
     public int getRowCount() {
         return pistes.size();
     }
@@ -53,4 +76,8 @@ public class ModeleDynamiqueObjetPistes extends AbstractTableModel {
 
         fireTableRowsDeleted(rowIndex, rowIndex);
     }
+
+	public List<Piste> getPistes() {
+		return pistes;
+	}
 }

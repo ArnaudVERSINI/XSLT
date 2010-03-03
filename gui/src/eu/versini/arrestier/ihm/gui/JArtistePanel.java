@@ -39,10 +39,10 @@ public class JArtistePanel extends JPanel implements IInterfaceSavable{
 		JLabel genreLabel = new JLabel("Genre : ");
 		JTextField genreField = new JTextField();
 		
-		JLabel dateNaissanceLabel = new JLabel("Date de naissance");
+/*		JLabel dateNaissanceLabel = new JLabel("Date de naissance");
 		SpinnerDateModel model = new SpinnerDateModel(artiste.getDateNaissance(), new Date(-1000, 1, 1), new Date(1000, 1, 1), Calendar.DAY_OF_YEAR);
 		JSpinner dateNaissance = new JSpinner(model);
-		dateNaissance.setEditor(new JSpinner.DateEditor(dateNaissance, "MM/dd/yy"));
+		dateNaissance.setEditor(new JSpinner.DateEditor(dateNaissance, "MM/dd/yy"));*/
 
 		GroupLayout layout = new GroupLayout(panneauEditionArtiste);
 		layout.setAutoCreateGaps(true);
@@ -53,13 +53,13 @@ public class JArtistePanel extends JPanel implements IInterfaceSavable{
 		hGroup.addGroup(layout.createParallelGroup()
 				.addComponent(artisteNameLabel)
 				.addComponent(artisteFirstNameLabel)
-				.addComponent(genreLabel)
-				.addComponent(dateNaissanceLabel));
+				.addComponent(genreLabel));
+				//.addComponent(dateNaissanceLabel));
 		hGroup.addGroup(layout.createParallelGroup()
 				.addComponent(artisteNameField)
 				.addComponent(artisteFirstNameField)
-				.addComponent(genreField)
-				.addComponent(dateNaissance));
+				.addComponent(genreField));
+				//.addComponent(dateNaissance));
 		
 		layout.setHorizontalGroup(hGroup);
 
@@ -73,9 +73,9 @@ public class JArtistePanel extends JPanel implements IInterfaceSavable{
 		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
 				.addComponent(genreLabel)
 				.addComponent(genreField));
-		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+		/*vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
 				.addComponent(dateNaissanceLabel)
-				.addComponent(dateNaissance));
+				.addComponent(dateNaissance));*/
 		layout.setVerticalGroup(vGroup);
 
 		add(panneauEditionArtiste);
