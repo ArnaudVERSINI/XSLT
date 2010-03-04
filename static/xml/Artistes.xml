@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
 <!DOCTYPE Guide SYSTEM "Artistes.dtd">
 <Artistes>
-	<Type id="fr">Français</Type>
-	<Type id="us">US</Type>
+	<Type id="rock_fr">Rock Français</Type>
+	<Type id="rock_int">Rock internationnal</Type>
 	
-	<Artiste id="1" type="fr">
+	<Artiste id="1" type="rock_fr">
 		<Nom>Chédid</Nom>
 		<Prenom>Matthieu</Prenom>
 		<Date-naissance>21 décembre 1971</Date-naissance>
-		<Photo fichier="M.jpg"></Photo>
+		<Photo fichier="http://fr.wikipedia.org/wiki/Fichier:Matthieu_Chedid_20071103_Chateauroux_1.jpg"></Photo>
 		<Lieu-naissance>Boulogne-Billancourt</Lieu-naissance>
 		<Info_Biographie>
 			Fils du chanteur français Louis Chédid, Matthieu voit le jour le 21 décembre 1971, à Boulogne-Billancourt. Baignant dans un environnement musical et cultivé - sa grand-mère est la poétesse libanaise Andrée Chedid - le petit Matthieu participe, dès l'âge de six ans, aux choeurs sur une chanson de son père.
 		</Info_Biographie>
 		<Pays>France</Pays>
 		<Album ref="2"></Album>
+		<Album ref="3" ></Album>
 	</Artiste>
-	<Artiste id="2" type="us">
+	<Artiste id="2" type="rock_int">
 		<Nom>Davis</Nom>
 		<Prenom>Miles</Prenom>
 		<Date-naissance>25 mai 1926</Date-naissance>
-		<Photo fichier="MilesDavis.jpg"></Photo>
+		<Photo fichier="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Miles_Davis_by_Palumbo.jpg/250px-Miles_Davis_by_Palumbo.jpg"></Photo>
 		<Lieu-naissance>Alton</Lieu-naissance>
 		<Info_Biographie>
 			Miles Dewey Davis est né aux Etats-Unis à Alton (Illinois) le 25 mai 1926. Comme pour Ellington, ses origines sociales tordent le cou à certains préjugés sur les jazzmen de l'époque ; il est en effet directement issu de la bourgeoisie américaine.
@@ -28,9 +29,20 @@
 		<Pays>Etats-Unis</Pays>
 		<Album ref="1"></Album>
 	</Artiste>
-	<Artiste id="3" type="fr">
-		<Nom>Clerc</Nom>
-		<Prenom>Julien</Prenom>
+	<Artiste id="3" type="rock_int">
+		<Nom>Muse</Nom>
+		<Prenom>Groupe</Prenom>
+		<Date-naissance>1994</Date-naissance>
+		<Photo fichier="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Musereading.jpg/300px-Musereading.jpg"></Photo>
+		<Lieu-naissance>Lieu-naissance</Lieu-naissance>
+		<Info_biographie>Le nom du groupe possède des origines plutôt incertaines, dont Matthew Bellamy semble s'amuser et au sujet desquelles il a donné plusieurs explications contradictoires :
+
+    * Après « Gothic Plague », leur premier nom de groupe, puis « Fixed Penalty » et enfin « Rocket Baby Dolls », les trois amis décidèrent de chercher un autre nom, ce dernier ne leur plaisant plus. Matthew Bellamy ouvrit le dictionnaire au hasard et tomba sur « Muse ». Comme dans le dictionnaire, le mot précédant Muse était « Muscle », et le nom suivant « Museum », ils intitulèrent donc leur première chanson Muscle Museum (deuxième piste de l'album Showbiz).
+    * Une autre version laisse entendre que ce serait à l'évocation, en cours d'arts plastiques, des Muses, filles de Zeus et de la nymphe Mnémosyne, que le groupe se décida pour ce nom « poétique et legendaire ». Le mot « Muse » provient du grec musa et signifie « Tourbillon ». Matthew Bellamy explique que ce nom « est facile à mémoriser, court, puissant » ; « ça passe bien sur une affiche de concert, on le retient facilement[11] ».
+    * Une autre explication voudrait que le nom « Muse » ait été choisi en souvenir de trois amies du groupe au lycée. Elles avaient pour habitude de se réunir la nuit, afin de s'essayer à la magie noire et de visiter de vieilles maisons abandonnées, pendant que Matthew Bellamy les accompagnait en jouant des mélodies mystérieuses à la guitare. Selon le chanteur, « c'était l'alliance parfaite entre la spiritualité et la musique »[12].</Info_biographie>
+		<Pays>Angleterre</Pays>
+		<Album ref="4" ></Album>
+		<Album ref="5" /><Album ref="6" />
 	</Artiste>
 
 </Artistes>
