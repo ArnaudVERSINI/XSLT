@@ -1,5 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project name="ihm" default="all" basedir=".">
-	<target name="all">
+	<path id="classpath.base">
+		<pathelement location="${test.dir}" />
+		<pathelement location="${src.dir}" />
+	</path>
+	<property file="build.properties" />
+	<target name="html">
 		<subant antfile="build.xml" buildpath="static" failonerror="true"/>
 	</target>
+	
+		<!-- ALL (defaut)  -->
+	<target name="all" depends="html, clean, create-jar" />
+	
+		<!-- CLEAN  -->
+	<target name="clean">
+		<delete dir="${build.dir}" />
+		<delete dir="${dist.dir}/${ant.project.name}.jar" />
+	</target>
+	
+		<!-- COMPILATION  -->
+	<target name="compile">
+		<mkdir dir="${build.dir}" />
+		<javac srcdir="gui/${src.dir}" destdir="${build.dir}" encoding="UTF-8">
+			<classpath>
+				<pathelement location="${build.dir}" />
+				<pathelement location="${dir.libs}/jdom.jar" />
+			</classpath>
+		</javac>
+	</target>
+	
+	
+	<!-- CREATION JAR  -->
+	<target name="create-jar" depends="compile">
+		<mkdir dir="${dist.dir}" />
+		<jar destfile="${dist.dir}/${ant.project.name}.jar" basedir="${build.dir}">
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}" />
+			</manifest>
+		</jar>
+	</target>
+	
 </project>
