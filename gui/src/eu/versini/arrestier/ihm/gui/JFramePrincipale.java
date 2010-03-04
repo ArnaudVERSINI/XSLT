@@ -107,6 +107,7 @@ public class JFramePrincipale extends JFrame {
 		menuFile.add(menuItemNew);
 		menuItemNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
+				globalTree.isSelectionEmpty() ;
 				Album alb = new Album(modele.listeAlbums.size()+1) ;
 				alb.setTitre("Nouvel Album") ;
 				modele.addAlbum(alb ) ;

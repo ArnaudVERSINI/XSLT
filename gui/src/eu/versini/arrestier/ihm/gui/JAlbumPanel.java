@@ -3,6 +3,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -75,6 +77,18 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		    }        
 		});
 		
+		JLabel couvertureLabel = new JLabel("Couverture : ");
+		final JTextField couvertureField = new JTextField(album.getCouverture());
+		couvertureField.addFocusListener(new FocusAdapter() {
+		    String lastChange = "";
+		    public void focusLost(FocusEvent evt) {
+		        String currentText = couvertureField.getText();
+		        if(!lastChange.equals(currentText) ){
+		            album.setCouverture(currentText);
+		        }
+		    }        
+		});
+		
 		// TODO FA combobox
 		DefaultComboBoxModel modeleCombo = new DefaultComboBoxModel()  ;
 		
@@ -84,14 +98,21 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 			if (unArtiste != null && unArtiste.getIdArtiste() != album.getIdArtiste()) {
 				modeleCombo.addElement(unArtiste);
 			}
-		}
-		
-		
+		}	
 		
 		JLabel artisteLabel = new JLabel("Artiste : ");
 		//JTextField artisteField = new JTextField(album.getPrenomArtiste() + " " + album.getNomArtiste());
-		JComboBox artisteField = new JComboBox(modeleCombo) ;
-
+		final JComboBox artisteField = new JComboBox(modeleCombo) ;
+		artisteField.addItemListener(new ItemListener() {			
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+				// TODO Auto-generated method stub
+				album.setIdArtiste(((Artiste) artisteField.getSelectedItem()).getIdArtiste());
+				album.setPrenomArtiste(((Artiste) artisteField.getSelectedItem()).getPrenom());
+				album.setNomArtiste(((Artiste) artisteField.getSelectedItem()).getNom());
+			}
+		});
+		
 		JLabel supportLabel = new JLabel("Support : ");
 		final JTextField supportField = new JTextField(album.getSupport());
 		supportField.addFocusListener(new FocusAdapter() {
@@ -126,12 +147,14 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		hGroup.addGroup(layout.createParallelGroup()
 				.addComponent(titreLabel)
 				.addComponent(anneeLabel)
+				.addComponent(couvertureLabel)
 				.addComponent(artisteLabel)
 				.addComponent(supportLabel)
 				.addComponent(prixLabel));
 		hGroup.addGroup(layout.createParallelGroup()
 				.addComponent(titreField)
 				.addComponent(anneeField)
+				.addComponent(couvertureField)
 				.addComponent(artisteField)
 				.addComponent(supportField)
 				.addComponent(prixField));
@@ -145,6 +168,9 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
 				.addComponent(anneeLabel)
 				.addComponent(anneeField));
+		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+				.addComponent(couvertureLabel)
+				.addComponent(couvertureField));
 		vGroup.addGroup(layout.createParallelGroup(Alignment.BASELINE)
 				.addComponent(artisteLabel)
 				.addComponent(artisteField));

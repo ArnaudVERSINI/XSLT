@@ -71,7 +71,7 @@ public class AlbumDocumentCreator {
 			} else if (infoAlbumElt.getName().equals("Annee")) {
 				album.setAnnee(albumElement.getChildText("Annee"));
 			} else if (infoAlbumElt.getName().equals("Couverture")) {
-				album.setCouverture(albumElement.getChildText("Couverture"));
+				album.setCouverture(infoAlbumElt.getAttributeValue("fichier"));
 			} else if (infoAlbumElt.getName().equals("Artiste")) {
 				album.setIdArtiste(Integer.parseInt(infoAlbumElt
 						.getAttributeValue("ref")));
@@ -163,10 +163,20 @@ public class AlbumDocumentCreator {
 								.getChildText("Prenom"));
 						artiste.setPrenom(artisteElement
 								.getChildText("Prenom"));
+					}					
+				}
+				
+					if (infoAlbumElt.getName().equals("Nom")) {
+						
+						artiste.setNom(artisteElement.getChildText("Nom"));
+					} else if (infoAlbumElt.getName().equals("Prenom")) {
+						
+						artiste.setPrenom(artisteElement
+								.getChildText("Prenom"));
 					}
 
 					
-				}
+				
 			}
 		}
 		return artiste ;
