@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -39,6 +40,7 @@ import org.jdom.output.XMLOutputter;
 
 import eu.versini.arrestier.ihm.metier.Album;
 import eu.versini.arrestier.ihm.metier.AlbumDocumentCreator;
+import eu.versini.arrestier.ihm.metier.Artiste;
 import eu.versini.arrestier.ihm.metier.Piste;
 
 public class JFramePrincipale extends JFrame {
@@ -50,6 +52,8 @@ public class JFramePrincipale extends JFrame {
 	String choosertitle;
 
 	ModeleFichierAlbum modele;
+	
+	HashMap<String, Artiste> listeArtiste ;
 
 	public JFramePrincipale() {
 		chooser = new JFileChooser();
@@ -102,8 +106,11 @@ public class JFramePrincipale extends JFrame {
 		menuFile.add(menuItemNew);
 		menuItemNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
-				JDialogBoxAjouterAlbum diagAjouterAlbum = new JDialogBoxAjouterAlbum(modele.listeAlbums.size());
-				diagAjouterAlbum.setVisible(true) ;
+				Album alb = new Album(modele.listeAlbums.size()+1) ;
+				alb.setTitre("Nouvel Album") ;
+				modele.addAlbum(alb ) ;
+				initModel(modele);
+				
 			}
 		}); 
 
@@ -151,11 +158,7 @@ public class JFramePrincipale extends JFrame {
 		
 		
 		for (Album unAlbum : modele) {
-			System.out.println(unAlbum.getTitre());
-			System.out.println(unAlbum.getAnnee());
-			for (Piste unePiste : unAlbum.getPistes()) {
-				System.out.println("\t" + unePiste);
-			}
+			System.out.println(unAlbum.affiche());
 		}
 
 		Element root = new Element("Albums");
@@ -241,7 +244,7 @@ public class JFramePrincipale extends JFrame {
 				if (obj.getClass() == Album.class) {
 					Album album = (Album) obj;
 					panneauDroite.removeAll();
-					panneauDroite.add(new JAlbumPanel(album));
+					panneauDroite.add(new JAlbumPanel(album , listeArtiste));
 				}
 			}
 		});
@@ -268,6 +271,7 @@ public class JFramePrincipale extends JFrame {
 				+ System.getProperty("file.separator") + "Albums.xml",
 				repertoire + System.getProperty("file.separator")
 						+ "Artistes.xml");
+		listeArtiste = albums.getArtistesCharges();
 		modele = new ModeleFichierAlbum();
 
 		ArrayList<Album> listeAlbums = new ArrayList<Album>(albums

@@ -3,11 +3,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -15,17 +18,22 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.event.ListDataListener;
 
 import eu.versini.arrestier.ihm.metier.Album;
+import eu.versini.arrestier.ihm.metier.Artiste;
 import eu.versini.arrestier.ihm.metier.Piste;
 
 
 public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 	
 	private Album album;
+	
+	HashMap<String, Artiste> listeArtiste ;
 
-	public JAlbumPanel(Album album) {
+	public JAlbumPanel(Album album, HashMap<String, Artiste> listeArtiste) {
 		this.album = album;
+		this.listeArtiste = listeArtiste ;
 		final BoxLayout frameBoxLayout = new BoxLayout(this, BoxLayout.Y_AXIS);
 		setLayout(frameBoxLayout);
 		panneauEdition();
@@ -36,7 +44,7 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		panneauEdition();
 	}
 
-	private void panneauEdition() {
+	public void panneauEdition() {
 		JPanel panneauEditionAlbum = new JPanel();
 		final JPistesPanel panneauPistes = new JPistesPanel(album.getPistes());
 		
@@ -67,9 +75,20 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		    }        
 		});
 		
-		JLabel artisteLabel = new JLabel("Artiste : ");
-		JTextField artisteField = new JTextField(album.getPrenomArtiste() + " " + album.getNomArtiste());
+		// TODO FA combobox
+		DefaultComboBoxModel modeleCombo = new DefaultComboBoxModel()  ;
 		
+		ArrayList<Artiste> lArtistes = new ArrayList<Artiste>(listeArtiste.values());
+		
+		for (Artiste unArtiste : lArtistes) {
+			modeleCombo.addElement(unArtiste);
+		}
+		
+		
+		
+		JLabel artisteLabel = new JLabel("Artiste : ");
+		//JTextField artisteField = new JTextField(album.getPrenomArtiste() + " " + album.getNomArtiste());
+		JComboBox artisteField = new JComboBox(modeleCombo) ;
 		
 		JLabel supportLabel = new JLabel("Support : ");
 		final JTextField supportField = new JTextField(album.getSupport());
@@ -167,6 +186,10 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 	@Override
 	public void saveObject() {
 		
+	}
+
+	public Album getAlbum() {
+		return album;
 	}
 
 }

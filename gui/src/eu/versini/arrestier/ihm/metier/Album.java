@@ -111,6 +111,16 @@ public class Album implements Comparable<Album>{
 		this.id = id;
 	}
 
+	public String affiche() {
+		String retour ;
+		retour = this.getTitre() + " " + this.getAnnee() + "\n";
+			for (Piste unePiste : this.getPistes()) {
+				retour += "\t" + unePiste + "\n";
+			}
+		return retour;
+		
+	}
+	
 	public String toString() {
 		return getTitre();
 		

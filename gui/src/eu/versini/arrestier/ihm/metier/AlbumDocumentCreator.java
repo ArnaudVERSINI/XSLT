@@ -1,13 +1,9 @@
 package eu.versini.arrestier.ihm.metier;
 
 import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLStreamHandlerFactory;
-import java.sql.Date;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -15,14 +11,15 @@ import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
-import org.jdom.output.Format;
-import org.jdom.output.XMLOutputter;
+
 
 import eu.versini.arrestier.ihm.metier.Piste;
 
 @SuppressWarnings("unchecked")
 public class AlbumDocumentCreator {
 	HashMap<String, Album> albumsCharges = new HashMap<String, Album>();
+	
+	HashMap<String, Artiste> artistesCharges = new HashMap<String, Artiste>();
 
 	/**
 	 * Constructeur pour charger les 2 arbres JDOM
@@ -137,27 +134,34 @@ public class AlbumDocumentCreator {
 		List<Element> elts = root.getChildren("Artiste");
 
 		for (Element elt : elts) {
-			artisteFromElement(elt);
+			Artiste artiste = artisteFromElement(elt);
+			artistesCharges.put(String.valueOf(artiste.getIdArtiste()), artiste);
 		}
 	}
 
-	private void artisteFromElement(Element artisteElement) {
+	private Artiste artisteFromElement(Element artisteElement) {
 
+		
+		
 		String id = artisteElement.getAttributeValue("id");
-
+		Artiste artiste = new Artiste(Integer.parseInt(id));
+		
 		ArrayList<Album> listeAlbums = new ArrayList<Album>(this
 				.getAlbumsCharges().values());
 
 		List<Element> listeInfoArtiste = artisteElement.getChildren();
-
+		
 		for (Album album : listeAlbums) {
 			for (Element infoAlbumElt : listeInfoArtiste) {
 				//System.out.println("Element " + infoAlbumElt.toString());
 				if (Integer.parseInt(id) == album.getIdArtiste()) {
 					if (infoAlbumElt.getName().equals("Nom")) {
 						album.setNomArtiste(artisteElement.getChildText("Nom"));
+						artiste.setNom(artisteElement.getChildText("Nom"));
 					} else if (infoAlbumElt.getName().equals("Prenom")) {
 						album.setPrenomArtiste(artisteElement
+								.getChildText("Prenom"));
+						artiste.setPrenom(artisteElement
 								.getChildText("Prenom"));
 					}
 
@@ -165,6 +169,7 @@ public class AlbumDocumentCreator {
 				}
 			}
 		}
+		return artiste ;
 	}
 
 
@@ -174,5 +179,9 @@ public class AlbumDocumentCreator {
 
 	public void setAlbumsCharges(HashMap<String, Album> albumsCharges) {
 		this.albumsCharges = albumsCharges;
+	}
+
+	public HashMap<String, Artiste> getArtistesCharges() {
+		return artistesCharges;
 	}
 }
