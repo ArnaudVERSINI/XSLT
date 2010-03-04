@@ -7,7 +7,7 @@
 	<xsl:template match="Albums">
 		<html>
 			<head>
-				<link rel="stylesheet" type="text/css" href="../../images/ihm1.css" />
+				<link rel="stylesheet" type="text/css" href="../images/ihm1.css" />
 				<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 				<title>Album</title>
 			</head>
