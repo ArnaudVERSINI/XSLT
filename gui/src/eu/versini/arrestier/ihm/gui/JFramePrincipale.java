@@ -83,6 +83,7 @@ public class JFramePrincipale extends JFrame {
 		} else {
 			System.exit(-1);
 		}
+		setTitle("DiscoWeb - Editeur de discographie");
 		initMenu();
 		initmachin();
 		setPreferredSize(new Dimension(600, 400));

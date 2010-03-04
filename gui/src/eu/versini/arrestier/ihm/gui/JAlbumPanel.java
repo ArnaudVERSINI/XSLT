@@ -79,9 +79,11 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		DefaultComboBoxModel modeleCombo = new DefaultComboBoxModel()  ;
 		
 		ArrayList<Artiste> lArtistes = new ArrayList<Artiste>(listeArtiste.values());
-		
+		modeleCombo.addElement(album.getNomArtiste()+ " " + album.getPrenomArtiste() );
 		for (Artiste unArtiste : lArtistes) {
-			modeleCombo.addElement(unArtiste);
+			if (unArtiste != null && unArtiste.getIdArtiste() != album.getIdArtiste()) {
+				modeleCombo.addElement(unArtiste);
+			}
 		}
 		
 		
@@ -89,7 +91,7 @@ public class JAlbumPanel extends JPanel implements IInterfaceSavable{
 		JLabel artisteLabel = new JLabel("Artiste : ");
 		//JTextField artisteField = new JTextField(album.getPrenomArtiste() + " " + album.getNomArtiste());
 		JComboBox artisteField = new JComboBox(modeleCombo) ;
-		
+
 		JLabel supportLabel = new JLabel("Support : ");
 		final JTextField supportField = new JTextField(album.getSupport());
 		supportField.addFocusListener(new FocusAdapter() {
