@@ -25,4 +25,5 @@ background-image:url(wallpaper1.jpg);
 .titre {
 font-size: xx-large;
 font-variant: small-caps;
+text-align: center; 
 }
