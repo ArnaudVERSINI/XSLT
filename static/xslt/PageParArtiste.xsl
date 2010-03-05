@@ -34,5 +34,17 @@
 				<xsl:attribute name="expression"><xsl:value-of select="@id" /></xsl:attribute>
 			</xsl:element>
 		</xsl:element>
+
+		<xsl:element name="xslt">
+			<xsl:attribute name="style">${xslt}/AlbumArtiste.xsl</xsl:attribute>
+			<xsl:attribute name="in">${xml}/Albums.xml</xsl:attribute>
+			<xsl:attribute name="out">${output}/AlbumArtiste-<xsl:value-of
+				select="@id" />.html</xsl:attribute>
+			<xsl:element name="param">
+				<xsl:attribute name="name">idArtiste</xsl:attribute>
+				<xsl:attribute name="expression"><xsl:value-of select="@id" /></xsl:attribute>
+			</xsl:element>
+		</xsl:element>
+
 	</xsl:template>
 </xsl:stylesheet>
