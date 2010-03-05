@@ -20,6 +20,7 @@
 		<delete dir="${output}"/>
 		<delete dir="${tmp}"/>
 		<delete file="buil_albums.ant"/>
+		<delete file="buil_artistes.ant"/>
 	</target>
 
 	<target name="mkdirs" depends="vars">
