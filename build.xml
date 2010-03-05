@@ -33,7 +33,7 @@
 	<!-- CREATION JAR  -->
 	<target name="create-jar" depends="compile">
 		<mkdir dir="${dist.dir}" />
-		<jar destfile="${dist.dir}/${ant.project.name}.jar" basedir="${build.dir}">
+		<jar destfile="${dist.dir}/disco_web_editor.jar" basedir="${build.dir}">
 			<manifest>
 				<attribute name="Main-Class" value="${main-class}" />
 				<attribute name="Class-Path" value="jdom.jar" />
