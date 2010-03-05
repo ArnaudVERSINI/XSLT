@@ -240,6 +240,8 @@ public class JFramePrincipale extends JFrame {
 			@Override
 			public void valueChanged(TreeSelectionEvent event) {
 				TreePath path = event.getNewLeadSelectionPath();
+				if (path == null)
+					return;
 				DefaultMutableTreeNode treenode = (DefaultMutableTreeNode) path
 						.getLastPathComponent();
 				Object obj = treenode.getUserObject();
