@@ -7,6 +7,8 @@ import javax.swing.UIManager.LookAndFeelInfo;
 public class Main {
 	static {
 		try {
+        		UIManager.setLookAndFeel(
+            			UIManager.getSystemLookAndFeelClassName());
 			for (final LookAndFeelInfo info :
 				UIManager.getInstalledLookAndFeels()) {
 				if ("Nimbus".equals(info.getName())) {
