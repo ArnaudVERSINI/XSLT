@@ -40,6 +40,10 @@
 						<xsl:text> </xsl:text>
 						<xsl:value-of select="Nom" />
 					</a>
+					<xsl:text> </xsl:text>
+						<a href="AlbumArtiste-{@id}.html">						
+						<xsl:text>Discographie</xsl:text>					
+					</a>
 				</li>
 			</xsl:for-each>
 		</div>

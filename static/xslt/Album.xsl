@@ -32,7 +32,7 @@
 			</div>
 
 			<div id="column_right" class="pochette">
-				<img src="../../images/{Couverture/@fichier}" />
+				<img src="{Couverture/@fichier}" />
 			</div>
 
 		<table id="column_left">

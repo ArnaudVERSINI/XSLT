@@ -32,7 +32,7 @@
 			
 						
 			<div id="column_left" class="photo">
-				<img src="../../images/{Photo/@fichier}" />
+				<img src="{Photo/@fichier}" />
 			</div>
 			
 			<div id="column_left" class="date_naissance">

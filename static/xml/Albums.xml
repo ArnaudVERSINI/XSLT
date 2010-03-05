@@ -46,7 +46,7 @@
 	<Album id="2">
 		<Titre>Je Dis Aime</Titre>
         	<Annee>2000</Annee>
-       		<Couverture fichier="JeDisAime.jpg"> </Couverture>
+       		<Couverture fichier="http://multimedia.fnac.com/multimedia/images_produits/grandes110/8/2/7/0724384816728.gif"> </Couverture>
        		<Artiste ref="1"></Artiste>
         	<Support>
 				<Type>CD</Type>
@@ -134,7 +134,7 @@
 	<Album id="3">
 		<Titre>Qui de Nous Deux</Titre>
         	<Annee>2003</Annee>
-       		<Couverture fichier="QuiDeNousDeux.jpg"> </Couverture>
+       		<Couverture fichier="http://multimedia.fnac.com/multimedia/images_produits/ZoomPE/5/0/8/0724359539805.jpg"> </Couverture>
        		<Artiste ref="1"></Artiste>
         	<Support>
 				<Type>CD</Type>

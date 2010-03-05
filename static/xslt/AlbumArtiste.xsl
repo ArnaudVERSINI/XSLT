@@ -32,7 +32,7 @@
 		<xsl:if test="$idArtiste=Artiste/@ref">
 		<div id="column_left" class="photo">
 			<a href="Album-{@id}.html" style="text-decoration:none;">
-				<img src="../../images/{Couverture/@fichier}" />
+				<img src="{Couverture/@fichier}" />
 			</a>
 			</div>
 		</xsl:if>
