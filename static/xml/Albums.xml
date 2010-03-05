@@ -4,7 +4,7 @@
 	<Album id="1">
 		<Titre>Kind of Blue</Titre>
         	<Annee>1997</Annee>
-       		<Couverture fichier="KindOfBlue.jpg"> </Couverture>
+       		<Couverture fichier="http://ecx.images-amazon.com/images/I/41sXPISG4oL._SL500_AA240_.jpg"> </Couverture>
        		<Artiste ref="2"> </Artiste>
         	<Support>
 				<Type>Jazz</Type>
@@ -165,6 +165,147 @@
 				<No>5</No>
 				<Titre>Qui De Nous Deux</Titre>
 				<Duree>03:04</Duree>
+			</Piste>
+		</Pistes>
+    	</Album> 
+    	<Album id="4">
+		<Titre>The Resistance</Titre>
+        	<Annee>2009</Annee>
+       		<Couverture fichier="http://ecx.images-amazon.com/images/I/61pzKBU7keL._SL500_AA240_.jpg"> </Couverture>
+       		<Artiste ref="3"></Artiste>
+        	<Support>
+				<Type>CD</Type>
+				<Prix>13.34</Prix>
+			</Support>
+        	<Pistes>
+			<Piste> 
+				<No>1</No>
+				<Titre>Uprising</Titre>
+				<Duree>05:04</Duree>
+			</Piste>
+			<Piste> 
+				<No>2</No>
+				<Titre>Resistance</Titre>
+				<Duree>05:46</Duree>
+			</Piste>
+			<Piste> 
+				<No>3</No>
+				<Titre>Undisclosed desires</Titre>
+				<Duree>03:56</Duree>
+			</Piste>
+			<Piste> 
+				<No>4</No>
+				<Titre>United States of Eurasia</Titre>
+				<Duree>05:47</Duree>
+			</Piste>
+			<Piste> 
+				<No>5</No>
+				<Titre>Guiding light</Titre>
+				<Duree>04:13</Duree>
+			</Piste>
+						<Piste> 
+				<No>6</No>
+				<Titre>Unnatural Selection</Titre>
+				<Duree>06:54</Duree>
+			</Piste>
+			<Piste> 
+				<No>7</No>
+				<Titre>MK Ultra</Titre>
+				<Duree>04:06</Duree>
+			</Piste>
+		</Pistes>
+    	</Album> 
+    	   	<Album id="5">
+		<Titre>Origin of Symmetry</Titre>
+        	<Annee>2006</Annee>
+       		<Couverture fichier="http://multimedia.fnac.com/multimedia/images_produits/grandes/1/1/1/3298490385111.gif"> </Couverture>
+       		<Artiste ref="3"></Artiste>
+        	<Support>
+				<Type>CD</Type>
+				<Prix>13.34</Prix>
+			</Support>
+        	<Pistes>
+			<Piste> 
+				<No>1</No>
+				<Titre>New Born</Titre>
+				<Duree>0:03</Duree>
+			</Piste>
+			<Piste> 
+				<No>2</No>
+				<Titre>Bliss</Titre>
+				<Duree>05:46</Duree>
+			</Piste>
+			<Piste> 
+				<No>3</No>
+				<Titre>Space dementia</Titre>
+				<Duree>03:56</Duree>
+			</Piste>
+			<Piste> 
+				<No>4</No>
+				<Titre>Hyper music</Titre>
+				<Duree>05:47</Duree>
+			</Piste>
+			<Piste> 
+				<No>5</No>
+				<Titre>Plug in baby</Titre>
+				<Duree>04:13</Duree>
+			</Piste>
+						<Piste> 
+				<No>6</No>
+				<Titre>Citizen erased</Titre>
+				<Duree>06:54</Duree>
+			</Piste>
+			<Piste> 
+				<No>7</No>
+				<Titre>Micro Cuts</Titre>
+				<Duree>04:06</Duree>
+			</Piste>
+		</Pistes>
+    	</Album> 
+    	   	<Album id="6">
+		<Titre>Black holes and revelation</Titre>
+        	<Annee>2006</Annee>
+       		<Couverture fichier="http://multimedia.fnac.com/multimedia/images_produits/grandes110/6/2/9/0825646350926.gif"> </Couverture>
+       		<Artiste ref="3"></Artiste>
+        	<Support>
+				<Type>CD</Type>
+				<Prix>13.34</Prix>
+			</Support>
+        	<Pistes>
+			<Piste> 
+				<No>1</No>
+				<Titre>Take a Bow</Titre>
+				<Duree>0:03</Duree>
+			</Piste>
+			<Piste> 
+				<No>2</No>
+				<Titre>Starlight</Titre>
+				<Duree>05:46</Duree>
+			</Piste>
+			<Piste> 
+				<No>3</No>
+				<Titre>Supermassive Black Holes ...</Titre>
+				<Duree>03:56</Duree>
+			</Piste>
+			<Piste> 
+				<No>4</No>
+				<Titre>Map of the problematique</Titre>
+				<Duree>05:47</Duree>
+			</Piste>
+			<Piste> 
+				<No>5</No>
+				<Titre>Soldier's of Poem</Titre>
+				<Duree>04:13</Duree>
+			</Piste>
+						<Piste> 
+				<No>6</No>
+				<Titre>Invincible</Titre>
+				<Duree>06:54</Duree>
+			</Piste>
+			<Piste> 
+				<No>7</No>
+				<Titre>Assassin</Titre>
+				<Duree>04:06</Duree>
 			</Piste>
 		</Pistes>
     	</Album> 

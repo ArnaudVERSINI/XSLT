@@ -48,14 +48,6 @@
 	</xsl:template>
 
 	<xsl:template match="Albums">
-		<xsl:apply-templates select="Albums" />
-		<xsl:apply-templates select="Album" />
-		<xsl:apply-templates select="Titre" />
-		<xsl:apply-templates select="Annee" />
-		<xsl:apply-templates select="Pistes" />
-	</xsl:template>
-
-	<xsl:template match="Albums">
 		<fo:block>
 			<fo:inline font-size="22pt" background-color="#EEEEEE">
 				<xsl:text>Liste des albums</xsl:text>
@@ -66,6 +58,7 @@
 			<fo:table-column column-width="20%" background-color="rgb(255,246,206)" />
 			<fo:table-column column-width="30%" />
 			<fo:table-column column-width="30%" />
+			
 			<fo:table-header color="rgb(255,255,255)"
 				background-color="rgb(125,73,2)" font-weight="bold">
 				<fo:table-row>
@@ -81,39 +74,35 @@
 				</fo:table-row>
 			</fo:table-header>
 			<fo:table-body>
-				<xsl:apply-templates />
+				<xsl:apply-templates/>
 			</fo:table-body>
+			
 		</fo:table>
-
 	</xsl:template>
+	
 	<xsl:template match="Album">
 		<fo:table-row>
-			<xsl:apply-templates />
+				
+				<fo:table-cell padding="2pt" border="1pt solid black">
+					<fo:block>
+						<xsl:value-of select="Titre" />
+					</fo:block>
+				</fo:table-cell>
+
+				<fo:table-cell padding="2pt" border="1pt solid black">
+					<fo:block>
+						<xsl:value-of select="Annee" />
+					</fo:block>
+				</fo:table-cell>
+
+				<fo:table-cell padding="2pt" border="1pt solid black">
+					<fo:block>
+						<xsl:value-of select="count(Pistes/Piste)" />
+					</fo:block>
+				</fo:table-cell>
+
+			
 		</fo:table-row>
-	</xsl:template>
-
-	<xsl:template match="Titre">
-		<fo:table-cell padding="2pt" border="1pt solid black">
-			<fo:block>
-				<xsl:value-of select="." />
-			</fo:block>
-		</fo:table-cell>
-	</xsl:template>
-
-	<xsl:template match="Annee">
-		<fo:table-cell padding="2pt" border="1pt solid black">
-			<fo:block>
-				<xsl:value-of select="." />
-			</fo:block>
-		</fo:table-cell>
-	</xsl:template>
-
-	<xsl:template match="Pistes">
-		<fo:table-cell padding="2pt" border="1pt solid black">
-			<fo:block>
-				<xsl:value-of select="count(Piste)" />
-			</fo:block>
-		</fo:table-cell>
 	</xsl:template>
 </xsl:stylesheet>
 
